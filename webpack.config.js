@@ -7,8 +7,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
-
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -21,14 +21,12 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.html$/,
+      { test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
           },
-        ],
-      },
+        ] },
       {
         test: /\.(s*)css$/,
         use: [
@@ -39,7 +37,21 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|gif|jpg)$/,
+        use: [
+          {
+            'loader': 'file-loader',
+            options: {
+              name: 'assets/[hash].[ext]',
+            },
+          },
+        ],
+      },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -51,4 +63,3 @@ module.exports = {
     }),
   ],
 };
-
