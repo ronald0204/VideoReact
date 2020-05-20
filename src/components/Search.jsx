@@ -6,9 +6,9 @@ const Search = ({ isHome }) => {
   const inputStyles = classNames('input', {
     isHome,
   });
-  return(
+  return (
     <section className='main'>
-      <h2 className='main__title'>¿Qué quieres ver hoy?</h2>
+      <h2 className='main__title'>¿Qué Quieres Comprar hoy?</h2>
       <input type='text' className={inputStyles} placeholder='Buscar...' />
     </section>
 
