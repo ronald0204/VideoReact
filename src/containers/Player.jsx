@@ -4,7 +4,7 @@ import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
 import NotFound from './NotFound';
 
-const Player = props => {
+const Player = (props) => {
   const { id } = props.match.params;
   const hasPlaying = Object.keys(props.playing).length > 0;
 
@@ -26,7 +26,7 @@ const Player = props => {
   ) : <NotFound />;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     playing: state.playing,
   };
